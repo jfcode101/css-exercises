@@ -1,21 +1,26 @@
+/* *{
+  box-sizing: border-box;
+} */
+
 body {
   max-width: 600px;
   margin: 0 auto;
+  /* border: 15px solid red; */
 }
 
 .one {
   background: pink;
   border: 3px solid blue;
   /* CHANGE ME */
-  padding: 0px;
-  margin: 0px;
+  padding: 32px;
+  margin: 12px;
 }
 
 .two {
   background: lightblue;
   border: 3px solid purple;
   /* CHANGE ME */
-  margin-bottom: 0px;
+  margin-bottom: 48px;
 }
 
 .three {
@@ -23,6 +28,13 @@ body {
   border: 3px solid brown;
   width: 200px;
   /* CHANGE ME */
-  padding: 0px;
-  margin-left: 0px;
+  padding: 32px;
+  /* 
+    since the "box-sizing = border-box;" rule isn't applied, this can be solved like this:
+    margin-left = body's Width - div Three's width
+    - the width of the body is 600px, 
+    - the width of the div THREE = width + paddings(left & right) + borders(left & right)
+  */
+  margin-left: calc(600px - (200px + (32px * 2) + (3px * 2)));
+  /* margin-left: auto; */
 }
